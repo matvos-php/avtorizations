@@ -1,0 +1,11 @@
+.made-with-love {
+    
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    position:sticky;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

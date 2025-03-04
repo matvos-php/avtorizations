@@ -1,0 +1,107 @@
+
+body{
+  background-image: url("../img/icons/logo.svg");
+  background-size: 600px;
+  background-clip: content-box;
+  background-color: black;
+  scroll-behavior: smooth;
+}
+.container {
+    width: 100%;
+    padding: 0 !important;
+
+    @media screen and (min-width: 1005px) and (max-width: 1439px) {
+      max-width: 1279px !important;
+      padding: 0 !important;
+      margin: 0 80px !important;
+      width: auto !important;
+    }
+
+    @media screen and (max-width: 1005px) {
+      max-width: 939px !important;
+      margin: 0 16px !important;
+      padding: 0 !important;
+      width: auto !important;
+    }
+  }
+
+  .gradient-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 30px;
+    transition: all 0.2s;
+    @media screen and (max-width: 991px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    max-width: 500px;
+    border: 0;
+    width: 100%;
+    margin-inline: auto;
+    background: rgba(0, 0, 0, 1);
+    border: 2px solid white;
+    border-radius: 3%;
+    transition: all 0.2s;
+  }
+
+  .container-card:hover {
+    transform:scale(1.02);
+    transition: all 0.2s;
+  }
+
+  .container-card {
+    position:relative;
+    border: 4px solid transparent;
+    background-color: rgba(17, 17, 17, 0.8);
+    border-radius: 1%;
+    padding: 20px;
+  }
+
+  .bg-green-box,
+  .bg-white-box,
+  .bg-yellow-box,
+  .bg-blue-box {
+    position: relative;
+  }
+
+
+
+  .bg-green-box:hover {
+    background: linear-gradient(61deg, #0000009c 25%, #4cf170b4 50%, #000000b4);
+    transition: all 1s;
+  }
+
+  .bg-white-box:hover {
+    background: linear-gradient(61deg, #000000ad, #df72dfa9, #000000a6);
+    transition: all 1s;
+  }
+
+  .bg-yellow-box:hover {
+    background: linear-gradient(61deg, #0000009d, #ffea00b6, #000000a4);
+    transition: all 1s;
+  }
+
+  .bg-blue-box:hover {
+    background: linear-gradient(61deg, #000000a9, #3954c2b2, #000000ad);
+    transition: all 1s;
+  }
+
+  .card-title {
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.02em;
+    line-height: 40px;
+    font-style: normal;
+    font-size: 28px;
+    padding-bottom: 8px;
+  }
+
+  .card-description {
+    font-weight: 600;
+    line-height: 32px;
+    color: hsla(0, 0%, 100%, 0.5);
+    font-size: 16px;
+  }

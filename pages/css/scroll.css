@@ -1,0 +1,196 @@
+@font-face {
+  font-family: "Geist Sans";
+  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+}
+
+:root {
+  --bg: hsl(0 0% 2%);
+  --color: hsl(0 0% 100% / 0.1);
+  --underline-width: 1lh;
+  --underline-block-width: 200vmax;
+  --underline-color: hsl(0 0% 50% / 0.15);
+  --underline-color-hover: hsl(180 100% 50% / 1);
+  --underline-transition: 5s;
+  --finish-fill: hsl(0 0% 100%);
+  --accent: hsl(0 0% 100%);
+  --fill: hsl(0 0% 50%);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--color);
+  font-family: "Geist Sans", sans-serif;
+  font-weight: bold;
+  accent-color: red;
+  overflow-x: hidden;
+  font-weight: 120;
+}
+
+:root:has(#driver:checked) main {
+	outline: 1rem dashed hsl(0 80% 50% / 0.5);
+	background: hsl(0 80% 50% / 0.1);
+}
+
+.header__scroll {
+  height: 200vh;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1rem, 2vw + 1rem, 6rem);
+}
+
+.h1__scroll {
+  font-weight: 120;
+  background: linear-gradient(var(--finish-fill), var(--fill));
+  background-clip: text;
+/*  text-transform: uppercase;*/
+}
+
+.p__scroll {
+  max-width: 70vw;
+  overflow: hidden;
+  padding: 10ch;
+	margin: 0;
+}
+
+.p__scroll > span {
+	font-size: clamp(4rem, 2vw + 1rem, 10rem);
+  color: var(--color);
+  text-decoration: none;
+  background-image:
+		/* First one is the highlight */
+		linear-gradient(90deg, transparent calc(100% - 8ch), var(--accent) calc(100%  - 8ch)),
+  	linear-gradient(90deg, var(--fill), var(--fill)),
+    linear-gradient(90deg, var(--underline-color), var(--underline-color));
+  background-size:
+  	var(--underline-block-width) var(--underline-width),
+  	var(--underline-block-width) var(--underline-width),
+    100% var(--underline-width);
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: 100%;
+  background-clip: text;
+  color: var(--finish-fill);
+}
+
+
+.main__scroll {
+  height: 200vh;
+}
+
+.section__scroll {
+  position: sticky;
+  top: 0;
+	height: 100vh;
+	width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .main__scroll {
+      view-timeline-name: --section;
+    }
+    
+    .p__scroll > span {
+      background-position-x:
+        calc(var(--underline-block-width) * -1),
+        calc(var(--underline-block-width) * -1),
+        0;
+      color: transparent;
+      animation-name: fill-up, color-in;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    	animation-timeline: --section;
+    	animation-range: entry 100% cover 50%, cover 50% exit 0%;
+    }
+
+    @keyframes fill-up {
+    	to { background-position-x: 0, 0, 0; }
+    }
+
+    @keyframes color-in {
+    	to { color: var(--finish-fill); }
+    }
+  }
+}
+
+.container__social {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social {
+  color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.social__item {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  transition: all 0.4s;
+}
+
+.link__social {
+  font-size: 25px;
+}
+
+.whatsapp:hover {
+  border-color: #4dc247;
+  box-shadow: 0px 0px 25px #4dc247;
+  color: #4dc247;
+}
+
+.whatsapp .fa-whatsapp:hover {
+  border-color: #4dc247;
+  text-shadow: 0px 0px 25px #4dc247;
+  color: #4dc247;
+}
+
+.telegram:hover {
+  border-color: #00aced;
+  box-shadow: 0px 0px 25px #00aced;
+  color: #00aced;
+}
+
+.telegram .fa-telegram:hover {
+  border-color: #00aced;
+  text-shadow: 0px 0px 25px #00aced;
+  color: #00aced;
+}
+
+.vk:hover {
+  border-color: #0072ed;
+  box-shadow: 0px 0px 25px #0072ed;
+  color: #0072ed;
+}
+
+.vk .fa-vk:hover {
+  border-color: #0072ed;
+  text-shadow: 0px 0px 25px #0072ed;
+  color: #0072ed;
+}
+
+.google:hover {
+  border-color: #f44040;
+  box-shadow: 0px 0px 25px #f44040;
+  color: #f44040;
+}
+
+.google .fa-google:hover {
+  border-color: #f44040;
+  text-shadow: 0px 0px 25px #f44040;
+  color: #f44040;
+}
